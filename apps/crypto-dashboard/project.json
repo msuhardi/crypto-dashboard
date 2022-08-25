@@ -1,0 +1,83 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/crypto-dashboard/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/crypto-dashboard",
+        "index": "apps/crypto-dashboard/src/index.html",
+        "baseHref": "/",
+        "main": "apps/crypto-dashboard/src/main.tsx",
+        "polyfills": "apps/crypto-dashboard/src/polyfills.ts",
+        "tsConfig": "apps/crypto-dashboard/tsconfig.app.json",
+        "assets": [
+          "apps/crypto-dashboard/src/favicon.ico",
+          "apps/crypto-dashboard/src/assets"
+        ],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/crypto-dashboard/src/environments/environment.ts",
+              "with": "apps/crypto-dashboard/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "crypto-dashboard:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "crypto-dashboard:build:development"
+        },
+        "production": {
+          "buildTarget": "crypto-dashboard:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/crypto-dashboard/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/crypto-dashboard"],
+      "options": {
+        "jestConfig": "apps/crypto-dashboard/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
