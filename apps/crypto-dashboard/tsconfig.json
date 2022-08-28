@@ -10,7 +10,14 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": ["app/components/*"],
+      "@assets/*": ["assets/*"],
+      "@types": ["app/types/index"],
+      "@constants": ["app/constants"],
+    }
   },
   "files": [],
   "include": [],

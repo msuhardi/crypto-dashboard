@@ -1,0 +1,46 @@
+.tippy-box[data-theme~='allium'], .tippy-box[data-theme~='allium-animated'] {
+  background-color: rgb(63, 121, 246);
+  color: rgba(255,255,255,.8);
+  padding: 2px 6px;
+}
+
+.tippy-box[data-theme~='allium-info'] {
+  color: rgba(255,255,255,.8);
+  font-size: .85em;
+  padding: 10px 6px;
+}
+
+.tippy-box[data-theme~='allium'][data-placement^='top'] > .tippy-arrow::before,
+.tippy-box[data-theme~='allium-animated'][data-placement^='top'] > .tippy-arrow::before
+{
+  border-top-color: rgb(63, 121, 246);
+}
+.tippy-box[data-theme~='allium'][data-placement^='bottom'] > .tippy-arrow::before,
+.tippy-box[data-theme~='allium-animated'][data-placement^='bottom'] > .tippy-arrow::before {
+  border-bottom-color: rgb(63, 121, 246);
+}
+.tippy-box[data-theme~='allium'][data-placement^='left'] > .tippy-arrow::before,
+.tippy-box[data-theme~='allium-animated'][data-placement^='left'] > .tippy-arrow::before {
+  border-left-color: rgb(63, 121, 246);
+}
+.tippy-box[data-theme~='allium'][data-placement^='right'] > .tippy-arrow::before,
+.tippy-box[data-theme~='allium-animated'][data-placement^='right'] > .tippy-arrow::before {
+  border-right-color: rgb(63, 121, 246);
+}
+
+.tippy-box[data-theme~='allium-animated'] {
+  animation: float 3s ease-in-out infinite;
+  padding: 6px 12px;
+}
+
+@keyframes float {
+  0% {
+    transform: translatex(0px);
+  }
+  50% {
+    transform: translatex(-5px);
+  }
+  100% {
+    transform: translatex(0px);
+  }
+}

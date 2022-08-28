@@ -1,0 +1,139 @@
+import React from 'react';
+import styled from 'styled-components';
+
+import DragIc from '@assets/icons/drag';
+import InfoIc from '@assets/icons/info';
+
+import Tooltip from '@components/Tooltip';
+
+const Wrapper = styled.div`
+  background-color: ${(props) => props.theme.color.tertiaryColor};
+  border-radius: 4px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
+const TitleWrapper = styled.div`
+  font-size: 1em;
+  font-weight: 600;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  flex: 1;
+`;
+
+const Title = styled.div``;
+
+const Draggable = styled.div`
+  cursor: grab; /* fallback if grab cursor is unsupported */
+  opacity: 0.5;
+  fill: ${(props) => props.theme.color.iconColor};
+`;
+
+const TableContainer = styled.div`
+  position: relative;
+  overflow-y: scroll;
+`;
+
+const TableWrapper = styled.table`
+  table-layout: auto;
+  border-spacing: 0;
+  padding: 0 20px 20px 20px;
+  width: 100%;
+  height: 100px;
+  position: relative;
+  overflow-y: scroll;
+`;
+
+const Th = styled.th`
+  padding: 14px 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85em;
+  letter-spacing: 1.5px;
+  text-align: left;
+  position: sticky;
+  top: 0;
+  color: ${(props) => props.theme.color.blue};
+  background-color: ${(props) => props.theme.color.tertiaryColor};
+`;
+
+const Td = styled.td`
+  padding: 14px 18px;
+  border-bottom: 1px solid ${(props) => props.theme.color.borderColor};
+  font-size: 0.95em;
+
+  &:last-child {
+    border-right: none;
+  }
+`;
+
+const Tr = styled.tr<{ even?: boolean }>`
+  &:last-child > td {
+    border-bottom: none;
+  }
+`;
+
+const Row = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 32px;
+`;
+
+const InfoIcWrapper = styled.div`
+  fill: ${(props) => props.theme.color.iconColor};
+  margin-left: 8px;
+  cursor: pointer;
+`;
+
+const Table = ({
+  headers,
+  rows,
+  title
+}: {
+  headers: string[];
+  rows: string[][];
+  title: string;
+}) => {
+  return (
+    <Wrapper>
+      <Row>
+        <TitleWrapper>
+          <Title>{title}</Title>
+          <Tooltip
+            content="This can be filled by additional, less important information about this graph"
+            theme="allium-info"
+          >
+            <InfoIcWrapper>
+              <InfoIc height={12} />
+            </InfoIcWrapper>
+          </Tooltip>
+        </TitleWrapper>
+        <Draggable>
+          <DragIc height={16} />
+        </Draggable>
+      </Row>
+      <TableContainer>
+        <TableWrapper>
+          <Tr>
+            {headers.map((header, i) => (
+              <Th>{header}</Th>
+            ))}
+          </Tr>
+          {rows.map((row, i) => (
+            <Tr even={i % 2 === 0}>
+              {row.map((cell: string) => (
+                <Td>{cell}</Td>
+              ))}
+            </Tr>
+          ))}
+        </TableWrapper>
+      </TableContainer>
+    </Wrapper>
+  );
+};
+
+export default Table;
