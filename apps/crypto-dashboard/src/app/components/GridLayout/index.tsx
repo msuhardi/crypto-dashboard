@@ -6,7 +6,6 @@ import ResizeIc from '@assets/icons/resize';
 
 import './grid_layout.css';
 
-const LS_KEY = 'rgl-8';
 const LAYOUT_KEY = 'layouts';
 
 const COLS = { lg: 4, md: 3, sm: 2 };
@@ -24,27 +23,22 @@ const ResizeHandle = styled.div`
   opacity: 0.5;
 `;
 
-const saveToLS = (key: string, value: Layouts) => {
+const saveToLS = (value: Layouts) => {
   if (localStorage) {
-    localStorage.setItem(
-      LS_KEY,
-      JSON.stringify({
-        [key]: value
-      })
-    );
+    localStorage.setItem(LAYOUT_KEY, JSON.stringify(value));
   }
 };
 
-const getFromLS = (key: string) => {
-  let ls: { [k: string]: Layouts } = {};
+const getFromLS = () => {
+  let layout = {};
   if (localStorage) {
     try {
-      ls = JSON.parse(localStorage.getItem(LS_KEY) || '') || {};
+      layout = JSON.parse(localStorage.getItem(LAYOUT_KEY) || '') || {};
     } catch (e) {
       /*Ignore*/
     }
   }
-  return ls[key];
+  return layout;
 };
 
 const GridLayout = ({
@@ -58,9 +52,9 @@ const GridLayout = ({
   const [isLayoutFetched, setIsLayoutFetched] = useState(false);
 
   useEffect(() => {
-    const a = getFromLS(LAYOUT_KEY);
+    const layout = getFromLS();
 
-    setCurrentLayouts(a);
+    setCurrentLayouts(layout);
     setIsLayoutFetched(true);
   }, []);
 
@@ -73,7 +67,7 @@ const GridLayout = ({
       layouts={currentLayouts}
       onLayoutChange={(layout, layouts) => {
         if (isLayoutFetched) {
-          saveToLS(LAYOUT_KEY, layouts);
+          saveToLS(layouts);
           setCurrentLayouts(layouts);
         }
       }}

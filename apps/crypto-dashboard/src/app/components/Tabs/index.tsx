@@ -12,7 +12,7 @@ const Tabs = ({
   return (
     <TabsWrapper>
       {tabs.map(({ title, info }, i) => (
-        <Tab title={title} active={i === active} info={info} />
+        <Tab title={title} active={i === active} info={info} key={`tab-${i}`} />
       ))}
     </TabsWrapper>
   );
