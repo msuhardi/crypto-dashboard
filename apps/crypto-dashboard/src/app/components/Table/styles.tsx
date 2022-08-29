@@ -94,5 +94,5 @@ export {
   Td,
   Tr,
   Row,
-  InfoIcWrapper,
+  InfoIcWrapper
 };

@@ -16,7 +16,7 @@ import {
   Td,
   Tr,
   Row,
-  InfoIcWrapper,
+  InfoIcWrapper
 } from './styles';
 
 const Table = ({

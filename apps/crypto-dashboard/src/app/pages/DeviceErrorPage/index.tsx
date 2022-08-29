@@ -10,8 +10,8 @@ const Wrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   font-family: 'Noto Sans', sans-serif;
-  fill: rgb(63,121,246);
-  color: rgb(63,121,246);
+  fill: rgb(63, 121, 246);
+  color: rgb(63, 121, 246);
   padding: 20px 32px;
   box-sizing: border-box;
   position: relative;
@@ -32,13 +32,14 @@ const Header = styled.div`
   line-height: 1.5;
 `;
 
-const Text = styled.div`
-`;
+const Text = styled.div``;
 
 const DeviceErrorPage = () => (
   <Wrapper>
     <Header>Oops</Header>
-    <Text>Sorry, please open this website on <b>desktop / laptop</b>.</Text>
+    <Text>
+      Sorry, please open this website on <b>desktop / laptop</b>.
+    </Text>
     <Image src={require('assets/img/error.png')} />
   </Wrapper>
 );

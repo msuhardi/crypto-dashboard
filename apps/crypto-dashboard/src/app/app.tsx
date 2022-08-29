@@ -14,6 +14,6 @@ const App = () => {
   }
 
   return <DesktopApp />;
-}
+};
 
 export default App;

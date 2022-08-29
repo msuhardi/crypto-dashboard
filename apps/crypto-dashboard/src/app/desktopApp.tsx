@@ -71,6 +71,6 @@ const DesktopApp = () => {
       </StyledApp>
     </ThemeProvider>
   );
-}
+};
 
 export default DesktopApp;
