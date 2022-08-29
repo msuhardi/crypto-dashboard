@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 `;
 
 const Image = styled.img`
-  height: 250px;
+  height: 30%;
   position: absolute;
   bottom: 0;
 `;
@@ -32,7 +32,9 @@ const Header = styled.div`
   line-height: 1.5;
 `;
 
-const Text = styled.div``;
+const Text = styled.div`
+  text-align: center;
+`;
 
 const DeviceErrorPage = () => (
   <Wrapper>
