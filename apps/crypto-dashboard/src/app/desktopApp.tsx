@@ -59,6 +59,7 @@ const DesktopApp = () => {
     <ThemeProvider theme={theme[currentTheme]}>
       <StyledApp>
         <Dashboard
+          theme={currentTheme}
           onChangeTheme={() => {
             const changedTheme =
               currentTheme === DARK_THEME_KEY

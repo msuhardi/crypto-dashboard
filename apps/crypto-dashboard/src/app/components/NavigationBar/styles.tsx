@@ -9,9 +9,15 @@ const Wrapper = styled.div`
   padding: 0 28px;
 `;
 
+const SearchWrapper = styled.div`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 const Tools = styled.div`
   display: flex;
-  flex: 1;
   justify-content: flex-end;
 `;
 
@@ -21,7 +27,6 @@ const Logo = styled.div`
   background-image: url(${(props) => props.theme.logo.img});
   background-size: contain;
   background-repeat: no-repeat;
-  opacity: ${(props) => props.theme.icon.opacity};
 `;
 
-export { Wrapper, Tools, Logo };
+export { Wrapper, SearchWrapper, Tools, Logo };

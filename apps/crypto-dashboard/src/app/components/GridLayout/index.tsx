@@ -13,13 +13,13 @@ const COLS = { lg: 4, md: 3, sm: 2 };
 const ResponsiveGridLayout = WidthProvider(Responsive);
 const Wrapper = styled(ResponsiveGridLayout)<{ $margin?: number }>`
   margin: ${(props) => (props.$margin ? props.$margin : 0)}px;
-  color: ${(props) => props.theme.color.fontColor};
+  color: ${(props) => props.theme.font.color};
 `;
 
 const ResizeHandle = styled.div`
-  fill: ${(props) => props.theme.color.iconColor};
-  margin-right: 5px;
-  margin-bottom: 5px;
+  fill: ${(props) => props.theme.icon.color};
+  margin-right: ${(props) => props.theme.gutter.horizontal}px;
+  margin-bottom: ${(props) => props.theme.gutter.vertical}px;
   opacity: 0.5;
 `;
 

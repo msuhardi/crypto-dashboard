@@ -6,7 +6,6 @@ import { Wrapper, HoveredBg, Badge } from './styles';
 
 const Tool = ({
   hasUpdates,
-  active,
   icon,
   iconSize,
   toolStyles,
@@ -15,7 +14,6 @@ const Tool = ({
   onClick
 }: {
   hasUpdates?: boolean;
-  active?: boolean;
   iconSize?: number;
   icon: ReactElement;
   toolStyles?: object;

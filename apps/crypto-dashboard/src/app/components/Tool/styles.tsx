@@ -13,7 +13,7 @@ const Wrapper = styled.div<{
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  padding: 3px;
+  padding: ${(props) => props.theme.gutter.vertical}px;
 
   &:last-child {
     margin-right: 0;
@@ -26,7 +26,7 @@ const Wrapper = styled.div<{
   & > svg {
     transition: fill 0.4s ease;
     fill: ${(props) =>
-      props.iconColor ? props.iconColor : props.theme.color.iconColor};
+      props.iconColor ? props.iconColor : props.theme.icon.color};
     height: ${(props) => (props.iconSize ? `${props.iconSize}px` : 'inherit')};
   }
 `;
@@ -34,7 +34,7 @@ const Wrapper = styled.div<{
 const HoveredBg = styled.div<{ height?: number; hovered?: boolean }>`
   transition: background-color 0.4s ease;
   background-color: ${(props) =>
-    props.hovered ? 'rgba(63, 121, 246, .3)' : 'none'};
+    props.hovered ? props.theme.icon.hoveredBackgroundColor : 'none'};
   width: ${(props) => (props.height ? props.height + ICON_PADDING : 0)}px;
   height: ${(props) => (props.height ? props.height + ICON_PADDING : 0)}px;
   border-radius: ${(props) =>
@@ -45,7 +45,7 @@ const HoveredBg = styled.div<{ height?: number; hovered?: boolean }>`
 const Badge = styled.div`
   height: 8px;
   width: 8px;
-  background: #c23a3a;
+  background: ${(props) => props.theme.color.red};
   border-radius: ${(props) => props.theme.borderRadius};
   position: absolute;
   top: -2px;

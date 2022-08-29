@@ -9,9 +9,9 @@ const TabsWrapper = styled.div`
   display: flex;
   width: 100%;
   background-color: ${(props) => props.theme.color.tertiaryColor};
-  border-top: 1px solid ${(props) => props.theme.color.borderColor};
-  border-bottom: 1px solid ${(props) => props.theme.color.borderColor};
-  color: ${(props) => props.theme.color.fontColor};
+  border-top: 1px solid ${(props) => props.theme.borderColor};
+  border-bottom: 1px solid ${(props) => props.theme.borderColor};
+  color: ${(props) => props.theme.font.color};
   align-items: center;
   position: sticky;
   top: 0;
@@ -35,7 +35,7 @@ const TabWrapper = styled.div<{ active?: boolean }>`
 `;
 
 const InfoIcWrapper = styled.div`
-  fill: ${(props) => props.theme.color.iconColor};
+  fill: ${(props) => props.theme.icon.color};
   margin-left: 8px;
   cursor: pointer;
 `;

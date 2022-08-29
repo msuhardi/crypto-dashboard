@@ -7,7 +7,7 @@ import 'tippy.js/animations/shift-away-subtle.css';
 import './tooltip.css';
 
 const TooltipContent = styled.div`
-  font-family: 'Noto Sans', sans-serif;
+  font-family: ${(props) => props.theme.font.family};
 `;
 
 const Tooltip = ({
